@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ProcessPretty",
+        "repositoryURL": "https://github.com/dooZdev/ProcessPretty.git",
+        "state": {
+          "branch": null,
+          "revision": "2480826a1071ba69f37ba27b802db6aa4d288703",
+          "version": "0.0.4"
+        }
+      },
+      {
+        "package": "ssh-install",
+        "repositoryURL": "https://github.com/doozMen/ssh-install.git",
+        "state": {
+          "branch": null,
+          "revision": "69570b382e45fe169aa36dd58f261aadc03b4f72",
+          "version": "0.0.1"
+        }
+      },
+      {
+        "package": "swift-argument-parser",
+        "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
+        "state": {
+          "branch": null,
+          "revision": "986d191f94cec88f6350056da59c2e59e83d1229",
+          "version": "0.4.3"
+        }
+      },
+      {
+        "package": "swift-tools-support-core",
+        "repositoryURL": "https://github.com/apple/swift-tools-support-core.git",
+        "state": {
+          "branch": null,
+          "revision": "ab6339b6a33b69886b3cf2254d3326eddfe58eb0",
+          "version": "0.2.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

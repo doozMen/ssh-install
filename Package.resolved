@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ProcessPretty",
+        "repositoryURL": "https://github.com/dooZdev/ProcessPretty.git",
+        "state": {
+          "branch": null,
+          "revision": "4d6841d45d95cf0ff6989cbb149f9f3bcf22fa27",
+          "version": "0.0.5"
+        }
+      },
+      {
+        "package": "swift-argument-parser",
+        "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
+        "state": {
+          "branch": null,
+          "revision": "986d191f94cec88f6350056da59c2e59e83d1229",
+          "version": "0.4.3"
+        }
+      },
+      {
+        "package": "swift-log",
+        "repositoryURL": "https://github.com/apple/swift-log.git",
+        "state": {
+          "branch": null,
+          "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
+          "version": "1.4.2"
+        }
+      },
+      {
+        "package": "swift-tools-support-core",
+        "repositoryURL": "https://github.com/apple/swift-tools-support-core.git",
+        "state": {
+          "branch": null,
+          "revision": "ab6339b6a33b69886b3cf2254d3326eddfe58eb0",
+          "version": "0.2.2"
+        }
+      },
+      {
+        "package": "UnifiedLogging",
+        "repositoryURL": "https://github.com/dooZdev/UnifiedLogging.git",
+        "state": {
+          "branch": null,
+          "revision": "669211a10449298b63b0e7acdf4dae737fb4070b",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
