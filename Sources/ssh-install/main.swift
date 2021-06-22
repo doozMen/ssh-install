@@ -1,0 +1,3 @@
+import SSHInstall
+
+SSHInstallCommand.main()
