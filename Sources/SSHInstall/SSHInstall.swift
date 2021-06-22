@@ -26,7 +26,9 @@ public struct SSHInstallCommand: ParsableCommand {
     public init() {}
     
     public func run() throws {
+        print("starting ssh-install ...")
         try runWith(privateKey: privateKey, publicKey: publicKey, config: config)
+        print("✅ ssh-install")
     }
 }
 
