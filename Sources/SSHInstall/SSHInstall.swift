@@ -9,11 +9,30 @@ extension AbsolutePath: ExpressibleByArgument {
         do {
             self = try AbsolutePath(validating: argument)
         } catch {
-            print("❌ \(argument) is not a valid path.")
-            return nil
+            do {
+                guard let currentWorkingDirectory =  localFileSystem.currentWorkingDirectory else {
+                    throw Error.missingCurrentWorkingDirectory
+                }
+                let path = AbsolutePath(argument, relativeTo: currentWorkingDirectory)
+                
+                guard localFileSystem.exists(path) else {
+                    throw Error.noFileInCurrentWorkingDirectoryNamed(argument)
+                }
+                
+                self = path
+            } catch {
+                logger.error("absolute path init failed", metadata: ["path": .string(argument), "error": .string("\(error)")])
+                return nil
+            }
         }
     }
 }
+
+public enum Error: Swift.Error {
+    case missingCurrentWorkingDirectory
+    case noFileInCurrentWorkingDirectoryNamed(String)
+}
+
 public struct SSHInstallCommand: ParsableCommand {
     @Argument
     var privateKey: AbsolutePath
@@ -24,21 +43,24 @@ public struct SSHInstallCommand: ParsableCommand {
     @Argument
     var config: AbsolutePath
     
+    @Option(help: "by default files are added with their name to `~/.ssh`, but if you set this to true then the .ssh folder is deleted and then added again.")
+    var cleanSSHFolder: Bool = false
+    
     public init() {}
     
     public func run() throws {
-        try runWith(privateKey: privateKey, publicKey: publicKey, config: config)
+        try runWith(cleanSSHFolder: cleanSSHFolder, privateKey: privateKey, publicKey: publicKey, config: config)
     }
 }
 
 private func log(text: String, color: TerminalController.Color, bold: Bool) {
-    logger.trace("SSHInstallCommand",metadata: ["output": .string(text)])
+    logger.info("SSHInstallCommand", metadata: ["output": .string(text)])
 }
 
-private func runWith(privateKey: AbsolutePath, publicKey: AbsolutePath, config: AbsolutePath) throws {
+private func runWith(cleanSSHFolder: Bool, privateKey: AbsolutePath, publicKey: AbsolutePath, config: AbsolutePath) throws {
     
     let sshPath = AbsolutePath(".ssh", relativeTo: localFileSystem.homeDirectory)
-    if localFileSystem.exists(sshPath) {
+    if localFileSystem.exists(sshPath), cleanSSHFolder {
         try localFileSystem.removeFileTree(sshPath)
         try localFileSystem.createDirectory(sshPath)
     }
