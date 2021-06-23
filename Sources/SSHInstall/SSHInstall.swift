@@ -34,6 +34,8 @@ public enum Error: Swift.Error {
 }
 
 public struct SSHInstallCommand: ParsableCommand {
+    public static var configuration: CommandConfiguration = .init(commandName: "ssh-install", abstract: "puts existing ssh keys with correct access rights and known_hosts in ~/.ssh")
+    
     @Argument
     var privateKey: AbsolutePath
     
