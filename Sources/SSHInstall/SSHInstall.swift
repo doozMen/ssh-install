@@ -77,7 +77,7 @@ private func runWith(cleanSSHFolder: Bool, privateKey: AbsolutePath, publicKey: 
         output: log
     )
     
-    let output = try keyscan.run(in: #function, at: #filePath)
+    let output = try keyscan.run()
     
     let known_hosts = try output.utf8Output()
     
@@ -93,5 +93,5 @@ private func runWith(cleanSSHFolder: Bool, privateKey: AbsolutePath, publicKey: 
         arguments: ["600", "\(localFileSystem.homeDirectory.pathString)/.ssh/\(privateKey.basename)"],
         output: log
     )
-    try chmodUserReadWriteOnly.run(in: #function, at: #filePath)
+    try chmodUserReadWriteOnly.run()
 }

@@ -13,7 +13,7 @@ let package = Package(
         .library(name: "SSHInstall", targets: ["SSHInstall"])
     ],
     dependencies: [
-        .package(name: "ProcessPretty", url:"https://github.com/dooZdev/ProcessPretty.git", .upToNextMajor(from: "0.0.4")),
+        .package(name: "ProcessPretty", url:"https://github.com/dooZdev/ProcessPretty.git", .upToNextMajor(from: "0.0.7")),
         .package(url: "https://github.com/dooZdev/UnifiedLogging.git", .upToNextMajor(from: "1.0.0")),
         .package(url: "https://github.com/apple/swift-tools-support-core.git", .upToNextMajor(from: "0.2.2")),
         .package(url: "https://github.com/apple/swift-argument-parser.git", .upToNextMajor(from: "0.3.0")),
